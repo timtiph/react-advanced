@@ -1,20 +1,19 @@
-import { useState } from "react";
+import {useState} from 'react'
 import './App.css';
 
 function App() {
 
-  const [dataComponent, setDataComponent] = useState(1);
 
-  const changeState = () => {
-    setDataComponent(dataComponent + 1)
+  const [toggle, setToggle] = useState(true);
+
+
+  const toggleFunc = () => {
+    setToggle(!toggle)
   }
-
+  
   return (
     <div className="App">
-      <h1>Le state est {dataComponent} </h1>
-      <button
-      onClick={changeState}
-      >Change State</button>
+        <button onClick={toggleFunc}>Toggle</button>
     </div>
   );
 }
