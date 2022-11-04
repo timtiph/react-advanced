@@ -1,35 +1,21 @@
-import { useState } from "react";
+// import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import "./App.css";
-import Content from './Content'
+import useDimension from './useDimension'
 
 function App() {
-  const [toggle, setToggle] = useState("abc");
 
-  const toggleFunc = () => {
-    const newArr = [...toggle];
-    newArr.push(4);
+  const browserWidth = useDimension();
+  // console.log(browserWidth);
 
-    setToggle(newArr);
-  };
-
-  console.log("mise à jour");
-
+  if(browserWidth > 772){
+    console.log("Grand écran");
+  } else {
+    console.log("Petit écran");
+  }
 
   return (
     <div className="App">
-      <Content>
-        <h1>Titre de mon article 1</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </Content>
-      <Content>
-        <h1>Titre de mon article 2</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </Content>
-      <Content>
-        <h1>Titre de mon article 3</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </Content>
-      <button onClick={toggleFunc}>Toggle</button>
+
     </div>
   );
 }
